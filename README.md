@@ -1,16 +1,267 @@
-# React + Vite
+# 🧑‍💻 Portfólio Profissional — Daniel Tsuruga
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+> [!NOTE]
+> Website de portfólio profissional desenvolvido para apresentar minha trajetória,
+> habilidades e projetos.
+> Projeto da disciplina **Desenvolvimento e Integração de Aplicações Web (DIAW)** —
+> Engenharia de Software, PUC Minas.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚧 Status do Projeto
 
-## React Compiler
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow?style=for-the-badge)
+![React](https://img.shields.io/badge/React-19-007ec6?style=for-the-badge&logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+> 🟡 **Sprint atual:** Lab01S01 — Planejamento e prototipação.
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 📚 Índice
+
+- [Sobre o Projeto](#-sobre-o-projeto)
+- [Funcionalidades Principais](#-funcionalidades-principais)
+- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
+- [Protótipos e Design](#-protótipos-e-design)
+- [Estrutura de Pastas](#-estrutura-de-pastas)
+- [Instalação e Execução](#-instalação-e-execução)
+  - [Pré-requisitos](#pré-requisitos)
+  - [Passo a passo](#passo-a-passo)
+  - [Scripts disponíveis](#scripts-disponíveis)
+  - [Variáveis de ambiente](#variáveis-de-ambiente)
+- [Deploy](#-deploy)
+- [Demonstração](#-demonstração)
+- [Documentações Utilizadas](#-documentações-utilizadas)
+- [Autor](#-autor)
+- [Licença](#-licença)
+
+---
+
+## 📝 Sobre o Projeto
+
+Este é o meu **portfólio profissional**, desenvolvido como projeto da disciplina
+**Desenvolvimento e Integração de Aplicações Web (DIAW)** do curso de
+**Engenharia de Software da PUC Minas**.
+
+O objetivo é reunir, em um único lugar, as informações mais relevantes sobre a minha
+trajetória acadêmica e profissional, apresentando:
+
+- Quem eu sou e meus objetivos profissionais (em **português** e **inglês**);
+- Os **projetos** que desenvolvi;
+- Minhas **experiências** profissionais e acadêmicas;
+- Formas de **contato** direto.
+
+O site foi construído com foco em **design responsivo**, **boa usabilidade** e uma
+**identidade visual coerente** com o meu perfil profissional.
+
+> **Sobre mim:** Estudante de Engenharia de Software na PUC Minas 2º período,
+> com interesse em desenvolvimento de softwares.
+> Objetivo profissional: Evoluir constantemente, buscando conhecimento, independência e crescimento pessoal e profissional.
+
+---
+
+## ✨ Funcionalidades Principais
+
+> As funcionalidades abaixo representam o escopo planejado do portfólio.
+> O status indica o que já foi implementado em cada sprint.
+
+- 🌐 **Internacionalização (i18n):** conteúdo disponível em **português** e **inglês**. ⏳ _Planejado_
+- 👤 **Sobre Mim:** apresentação pessoal com formação, atuação, interesses e objetivos. ⏳ _Planejado_
+- 🗂️ **Projetos:** linha do tempo (timeline) com nome, descrição, tecnologias, link do GitHub e imagem/GIF de cada projeto. ⏳ _Planejado_
+- 💼 **Experiências:** histórico profissional/acadêmico com instituição, cargo, período e descrição. ⏳ _Planejado_
+- 📬 **Contato:** ícones clicáveis (e-mail, WhatsApp, LinkedIn) e formulário com envio de e-mail. ⏳ _Planejado_
+- 🎨 **Temas:** alternância entre tema claro e escuro. ⏳ _Planejado_
+- 📱 **Design responsivo:** adaptação a desktop, tablet e mobile. ⏳ _Planejado_
+
+---
+
+## 🛠 Tecnologias Utilizadas
+
+As seguintes ferramentas, bibliotecas e serviços foram (ou serão) utilizados na
+construção deste projeto.
+
+### 💻 Front-end
+
+| Tecnologia | Versão | Descrição |
+| :--- | :--- | :--- |
+| [React](https://react.dev/) | 19 | Biblioteca JavaScript para construção da interface em componentes. |
+| [Vite](https://vite.dev/) | 8 | Build tool e servidor de desenvolvimento rápido. |
+| JavaScript (ES6+) | — | Linguagem de programação principal do projeto. |
+| CSS | — | Estilização das páginas e componentes. |
+
+### ☁️ Back-end / Serviços
+
+| Tecnologia | Descrição |
+| :--- | :--- |
+| [Supabase](https://supabase.com/) | Backend como serviço (banco de dados PostgreSQL e APIs) para dados dinâmicos. ⏳ _Planejado_ |
+
+### 🚀 Infraestrutura & Deploy
+
+| Tecnologia | Descrição |
+| :--- | :--- |
+| [Vercel](https://vercel.com/) | Hospedagem do front-end com deploy contínuo a partir do GitHub. ⏳ _Planejado_ |
+| [Git](https://git-scm.com/) & [GitHub](https://github.com/) | Controle de versão e hospedagem do código-fonte. |
+
+### 🔧 Ferramentas de Desenvolvimento
+
+| Ferramenta | Versão | Descrição |
+| :--- | :--- | :--- |
+| [oxlint](https://oxc.rs/docs/guide/usage/linter) | 1 | Linter para análise estática e qualidade de código. |
+| [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react) | 6 | Plugin oficial do React para o Vite. |
+
+> [!NOTE]
+> Esta lista será atualizada conforme novas bibliotecas forem adicionadas ao projeto
+> (ex: biblioteca de roteamento, formulários, envio de e-mail, etc.).
+
+---
+
+## 🎨 Protótipos e Design
+
+O design e o protótipo navegável deste portfólio foram elaborados antes do
+desenvolvimento, servindo como referência visual para a implementação.
+
+- 🔗 **Protótipo navegável:** `<link do protótipo aqui>`
+- 🖼️ **Imagens dos protótipos:** _em breve_
+
+> [!NOTE]
+> As imagens dos protótipos (wireframes de média fidelidade) serão adicionadas nesta
+> seção como parte da entrega da Sprint Lab01S01.
+
+---
+
+## 📂 Estrutura de Pastas
+
+A estrutura abaixo descreve a organização atual do projeto (front-end em React + Vite).
+
+```
+danieltsuruga-portifolio/
+├── public/                 # 📂 Arquivos estáticos servidos diretamente (favicon, etc.)
+├── src/                    # 📂 Código-fonte da aplicação
+│   ├── assets/             # 🖼️ Imagens, ícones e outros recursos importados no código
+│   ├── App.jsx             # 🧩 Componente raiz da aplicação
+│   ├── App.css             # 🎨 Estilos do componente App
+│   ├── main.jsx            # 🚪 Ponto de entrada: renderiza o App no HTML
+│   └── index.css           # 🎨 Estilos globais
+├── index.html              # 📄 Página HTML base onde o React é injetado
+├── package.json            # 📦 Dependências, scripts e metadados do projeto
+├── package-lock.json       # 🔒 Versões exatas das dependências instaladas
+├── vite.config.js          # ⚙️ Configuração do Vite
+├── .gitignore              # 🧹 Arquivos e pastas ignorados pelo Git
+└── README.md               # 📘 Documentação do projeto (este arquivo)
+```
+
+> [!NOTE]
+> A estrutura evoluirá ao longo do desenvolvimento. Pastas como `components/`,
+> `pages/`, `services/` e `styles/` serão criadas conforme a aplicação crescer.
+
+---
+
+## 🔧 Instalação e Execução
+
+Siga os passos abaixo para rodar o projeto localmente na sua máquina.
+
+### Pré-requisitos
+
+- [Node.js](https://nodejs.org/) versão **18 ou superior** (recomendado: LTS)
+- [npm](https://www.npmjs.com/) (instalado junto com o Node.js) ou outro gerenciador de pacotes
+- [Git](https://git-scm.com/)
+
+### Passo a passo
+
+```bash
+# 1. Clone o repositório
+git clone https://github.com/DanielTsuruga/danieltsuruga-portifolio.git
+
+# 2. Acesse a pasta do projeto
+cd danieltsuruga-portifolio
+
+# 3. Instale as dependências
+npm install
+
+# 4. Rode o projeto em modo de desenvolvimento
+npm run dev
+```
+
+Após executar `npm run dev`, o terminal exibirá um endereço local
+(geralmente <http://localhost:5173>). Abra esse endereço no navegador para
+visualizar o portfólio.
+
+### Scripts disponíveis
+
+| Script | Comando | Descrição |
+| :--- | :--- | :--- |
+| Desenvolvimento | `npm run dev` | Inicia o servidor local de desenvolvimento. |
+| Build | `npm run build` | Gera a versão otimizada para produção na pasta `dist/`. |
+| Preview | `npm run preview` | Visualiza localmente a versão de produção gerada. |
+| Lint | `npm run lint` | Analisa o código em busca de problemas de qualidade. |
+
+### Variáveis de ambiente
+
+> [!NOTE]
+> O projeto ainda não utiliza variáveis de ambiente. Quando a integração com
+> **Supabase** e o **envio de e-mail** forem implementados, as variáveis necessárias
+> (com o prefixo `VITE_`) serão documentadas aqui, e um arquivo `.env.example`
+> será disponibilizado como referência.
+
+Exemplo de variáveis previstas (ainda não utilizadas):
+
+```env
+# Supabase
+VITE_SUPABASE_URL=<sua-url-do-supabase>
+VITE_SUPABASE_ANON_KEY=<sua-chave-anonima-do-supabase>
+```
+
+---
+
+## 🚀 Deploy
+
+O deploy será realizado na **[Vercel](https://vercel.com/)**, com publicação
+automática a cada atualização enviada para a branch principal do repositório no GitHub.
+
+- 🌐 **Site publicado:** `<link do deploy na Vercel — em breve>`
+
+> [!NOTE]
+> O link de acesso ao site hospedado será adicionado nesta seção na entrega da
+> Sprint Lab01S03.
+
+---
+
+## 🎥 Demonstração
+
+> [!NOTE]
+> As imagens e GIFs demonstrando o site e os projetos em funcionamento serão
+> adicionados aqui ao longo do desenvolvimento (previsto para a Sprint Lab01S03).
+
+---
+
+## 🔗 Documentações Utilizadas
+
+- 📖 [Documentação oficial do React](https://react.dev/)
+- 📖 [Guia de configuração do Vite](https://vite.dev/config/)
+- 📖 [Documentação do Supabase](https://supabase.com/docs)
+- 📖 [Documentação da Vercel](https://vercel.com/docs)
+- 📖 [Conventional Commits (padrão de mensagens de commit)](https://www.conventionalcommits.org/pt-br/v1.0.0/)
+
+---
+
+## 👤 Autor
+
+| Nome | GitHub | LinkedIn | E-mail |
+| :--- | :--- | :--- | :--- |
+| **Daniel Tsuruga** | [@DanielTsuruga](https://github.com/DanielTsuruga) | `<seu-linkedin-aqui>` | daniel.tsuruga@gmail.com |
+
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob a **Licença MIT**. Consulte o arquivo
+[LICENSE](LICENSE) para mais detalhes.
+
+---
+
+> Projeto acadêmico desenvolvido para a disciplina **DIAW** —
+> Prof. Dr. João Paulo Carneiro Aramuni · Engenharia de Software · PUC Minas.
