@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
+import Waveform from '../components/Waveform'
 
 function Home() {
   return (
@@ -30,6 +31,7 @@ function Home() {
       </div>
 
       <div className={styles.visual}>
+        <Waveform />
       </div>
     </section>
   )
