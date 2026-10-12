@@ -107,6 +107,6 @@ img {
 
 main {
   max-width: var(--max-width);
-  margin: 0 auto;          /* centraliza horizontalmente */
+  margin: 0 auto;         
   padding: var(--space-lg) var(--space-md);
 }
