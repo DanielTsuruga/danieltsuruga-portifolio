@@ -124,12 +124,22 @@ construção deste projeto.
 O design e o protótipo navegável deste portfólio foram elaborados antes do
 desenvolvimento, servindo como referência visual para a implementação.
 
-- 🔗 **Protótipo navegável:** [Figma](https://www.figma.com/proto/02rX9FrzEAHay8oHujkP1u/Portf%C3%B3lio-Daniel-Tsuruga-%E2%80%94-Wireframes)
-- 🖼️ **Imagens dos protótipos:** _em breve_
+- 🔗 **Protótipo navegável (Figma):** [Abrir protótipo](https://www.figma.com/proto/02rX9FrzEAHay8oHujkP1u/Portf%C3%B3lio-Daniel-Tsuruga-%E2%80%94-Wireframes)
+- 🎨 **Protótipo de alta fidelidade (Lovable):** <https://pixel-perfect-render-1506.lovable.app>
+
+### 🖼️ Wireframes das telas
+
+| Início | Projetos |
+| :---: | :---: |
+| ![Wireframe da página Início](docs/prototipos/inicio.png) | ![Wireframe da página Projetos](docs/prototipos/projetos.png) |
+| **Sobre** | **Currículo** |
+| ![Wireframe da página Sobre](docs/prototipos/sobre.png) | ![Wireframe da página Currículo](docs/prototipos/curriculo.png) |
+| **Contato** | |
+| ![Wireframe da página Contato](docs/prototipos/contato.png) | |
 
 > [!NOTE]
-> As imagens dos protótipos (wireframes de média fidelidade) serão adicionadas nesta
-> seção como parte da entrega da Sprint Lab01S01.
+> Os wireframes acima (média fidelidade) foram criados no Figma e usados como
+> referência para o desenvolvimento do site.
 
 ---
 
@@ -139,24 +149,37 @@ A estrutura abaixo descreve a organização atual do projeto (front-end em React
 
 ```
 danieltsuruga-portifolio/
-├── public/                 # 📂 Arquivos estáticos servidos diretamente (favicon, etc.)
-├── src/                    # 📂 Código-fonte da aplicação
-│   ├── assets/             # 🖼️ Imagens, ícones e outros recursos importados no código
-│   ├── App.jsx             # 🧩 Componente raiz da aplicação
-│   ├── App.css             # 🎨 Estilos do componente App
-│   ├── main.jsx            # 🚪 Ponto de entrada: renderiza o App no HTML
-│   └── index.css           # 🎨 Estilos globais
-├── index.html              # 📄 Página HTML base onde o React é injetado
-├── package.json            # 📦 Dependências, scripts e metadados do projeto
-├── package-lock.json       # 🔒 Versões exatas das dependências instaladas
-├── vite.config.js          # ⚙️ Configuração do Vite
-├── .gitignore              # 🧹 Arquivos e pastas ignorados pelo Git
-└── README.md               # 📘 Documentação do projeto (este arquivo)
+├── docs/                       # 📚 Documentação e protótipos
+│   └── prototipos/             # 🖼️ Wireframes das telas (usados no README)
+├── public/                     # 📂 Arquivos estáticos servidos diretamente (favicon, etc.)
+├── src/                        # 📂 Código-fonte da aplicação
+│   ├── assets/                 # 🖼️ Imagens e recursos importados no código
+│   ├── components/             # 🧱 Componentes reutilizáveis
+│   │   ├── Header.jsx           #    Barra de navegação do topo (menu, idioma, tema)
+│   │   ├── Header.module.css
+│   │   ├── Footer.jsx           #    Rodapé (mini-waveform + ano dinâmico)
+│   │   ├── Footer.module.css
+│   │   ├── Waveform.jsx         #    Onda sonora animada (reutilizável via props)
+│   │   └── Waveform.module.css
+│   ├── pages/                  # 📄 Páginas (uma por rota)
+│   │   ├── Home.jsx             #    Início (/)
+│   │   ├── Home.module.css
+│   │   ├── Projects.jsx         #    Projetos (/projetos)
+│   │   ├── About.jsx            #    Sobre (/sobre)
+│   │   ├── Resume.jsx           #    Currículo (/curriculo)
+│   │   └── Contact.jsx          #    Contato (/contato)
+│   ├── hooks/                  # 🎣 Hooks personalizados
+│   │   └── useTheme.js          #    Lógica de tema (estado + persistência)
+│   ├── App.jsx                 # 🧩 Componente raiz: define as rotas
+│   ├── main.jsx                # 🚪 Ponto de entrada: renderiza o App no HTML
+│   └── index.css               # 🎨 Estilos globais (tokens de design e temas)
+├── index.html                  # 📄 Página HTML base onde o React é injetado
+├── package.json                # 📦 Dependências, scripts e metadados do projeto
+├── package-lock.json           # 🔒 Versões exatas das dependências instaladas
+├── vite.config.js              # ⚙️ Configuração do Vite
+├── .gitignore                  # 🧹 Arquivos e pastas ignorados pelo Git
+└── README.md                   # 📘 Documentação do projeto (este arquivo)
 ```
-
-> [!NOTE]
-> A estrutura evoluirá ao longo do desenvolvimento. Pastas como `components/`,
-> `pages/`, `services/` e `styles/` serão criadas conforme a aplicação crescer.
 
 ---
 
