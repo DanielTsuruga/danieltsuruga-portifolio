@@ -1,8 +1,17 @@
+import { projects } from '../data/projects'
+import ProjectCard from '../components/ProjectCard'
+import styles from './Projects.module.css'
+
 function Projects() {
   return (
     <section>
-      <h1>Projetos</h1>
-      <p>Lista de projetos (em construção).</p>
+      <span className={styles.eyebrow}>01 — TRABALHOS SELECIONADOS</span>
+      <h1 className={styles.title}>Projetos</h1>
+      <div className={styles.list}>
+        {projects.map((project, index) => (
+          <ProjectCard key={project.id} project={project} index={index} />
+        ))}
+      </div>
     </section>
   )
 }
