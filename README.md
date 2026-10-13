@@ -124,7 +124,7 @@ construção deste projeto.
 O design e o protótipo navegável deste portfólio foram elaborados antes do
 desenvolvimento, servindo como referência visual para a implementação.
 
-- 🔗 **Protótipo navegável:** `<link do protótipo aqui>`
+- 🔗 **Protótipo navegável:** [Figma](https://www.figma.com/proto/02rX9FrzEAHay8oHujkP1u/Portf%C3%B3lio-Daniel-Tsuruga-%E2%80%94-Wireframes)
 - 🖼️ **Imagens dos protótipos:** _em breve_
 
 > [!NOTE]
@@ -252,7 +252,7 @@ automática a cada atualização enviada para a branch principal do repositório
 
 | Nome | GitHub | LinkedIn | E-mail |
 | :--- | :--- | :--- | :--- |
-| **Daniel Tsuruga** | [@DanielTsuruga](https://github.com/DanielTsuruga) | `<seu-linkedin-aqui>` | daniel.tsuruga@gmail.com |
+| **Daniel Tsuruga** | [@DanielTsuruga](https://github.com/DanielTsuruga) | [Linkedin](https://www.linkedin.com/in/daniel-eiji-tsuruga-b6983b443/) | daniel.tsuruga@gmail.com |
 
 ---
 
