@@ -7,7 +7,7 @@ function Home() {
     <section className={styles.hero}>
       <div className={styles.content}>
         <span className={styles.eyebrow}>
-          PORTFÓLIO <span className={styles.eyebrowNumber}>/ 01</span>
+          PORTFÓLIO <span className={styles.eyebrowNumber}></span>
         </span>
 
         <h1 className={styles.title}>
