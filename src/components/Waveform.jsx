@@ -15,9 +15,9 @@ function generateBars(barCount) {
   })
 }
 
-function Waveform({ barCount = 48, height = 140, className = '' }) {
-  // Recalcula as barras quando a quantidade muda.
-  const bars = generateBars(barCount)
+function Waveform({ barCount = 48, height = 140, heights, animated = true, className = '' }) {
+  const bars = heights ?? generateBars(barCount)
+  const count = bars.length
 
   return (
     <div
@@ -29,10 +29,10 @@ function Waveform({ barCount = 48, height = 140, className = '' }) {
       {bars.map((barHeight, i) => (
         <span
           key={i}
-          className={styles.bar}
+          className={`${styles.bar} ${animated ? '' : styles.static}`}
           style={{
             height: `${barHeight}%`,
-            animationDelay: `${(i - barCount) * 0.04}s`,
+            animationDelay: `${(i - count) * 0.04}s`,
           }}
         />
       ))}

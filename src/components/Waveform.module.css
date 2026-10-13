@@ -4,20 +4,24 @@
   justify-content: center;
   gap: 3px;
   width: 100%;
-  padding: var(--space-md) 0;
-  mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
+  padding: var(--wave-pad, var(--space-md)) 0;
+  mask-image: var(--wave-mask, linear-gradient(to right, transparent, #000 15%, #000 85%, transparent));
 }
 
 .bar {
   flex: 1;  
-  max-width: 4px;
+  max-width: var(--bar-max, 4px);
   background-color: var(--color-accent);
   border-radius: 2px;
   animation-name: pulse;
-  animation-duration: 2.2s;
+  animation-duration: var(--bar-dur, 2.2s);
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   transform-origin: center;
+}
+
+.static {
+  animation: none;
 }
 
 @keyframes pulse {
@@ -27,7 +31,7 @@
     opacity: 0.9;
   }
   50% {
-    transform: scaleY(0.35);
+    transform: scaleY(var(--bar-min, 0.35));
     opacity: 0.5;
   }
 }

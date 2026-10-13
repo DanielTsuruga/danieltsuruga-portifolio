@@ -20,7 +20,12 @@
 }
 
 .miniWave {
-  width: 60px;
+    width: 54px;
+  --wave-pad: 0;
+  --wave-mask: none;
+  --bar-max: 2px;
+  --bar-min: 0.35;
+  --bar-dur: 2.8s;
 }
 
 .name {
