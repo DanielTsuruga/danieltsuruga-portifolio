@@ -10,14 +10,16 @@
 
 ## 🚧 Status do Projeto
 
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow?style=for-the-badge)
+![Status](https://img.shields.io/badge/status-online-brightgreen?style=for-the-badge)
 ![React](https://img.shields.io/badge/React-19-007ec6?style=for-the-badge&logo=react&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
-> 🟡 **Sprint atual:** Lab01S01 — Planejamento e prototipação.
+### 🌐 Acesse o site publicado: **[danieltsuruga-portifolio.vercel.app](https://danieltsuruga-portifolio.vercel.app/)**
+
+> 🟢 **Sprint atual:** Lab01S03 — Hospedagem e finalização.
 
 ---
 
@@ -89,14 +91,17 @@ construção deste projeto.
 | Tecnologia | Versão | Descrição |
 | :--- | :--- | :--- |
 | [React](https://react.dev/) | 19 | Biblioteca JavaScript para construção da interface em componentes. |
+| [React Router](https://reactrouter.com/) | 7 | Roteamento entre as páginas (navegação sem recarregar). |
 | [Vite](https://vite.dev/) | 8 | Build tool e servidor de desenvolvimento rápido. |
+| [react-icons](https://react-icons.github.io/react-icons/) | 5 | Ícones (GitHub, LinkedIn, WhatsApp, e-mail) na página de contato. |
 | JavaScript (ES6+) | — | Linguagem de programação principal do projeto. |
-| CSS | — | Estilização das páginas e componentes. |
+| CSS Modules | — | Estilização com escopo isolado por componente + variáveis CSS (tokens). |
 
-### ☁️ Back-end / Serviços
+### ☁️ Serviços / Integrações
 
 | Tecnologia | Descrição |
 | :--- | :--- |
+| [EmailJS](https://www.emailjs.com/) | Envio do formulário de contato por e-mail, direto do front-end. ✅ _Implementado_ |
 | [Supabase](https://supabase.com/) | Backend como serviço (banco de dados PostgreSQL e APIs) para dados dinâmicos. ⏳ _Planejado_ |
 
 ### 🚀 Infraestrutura & Deploy
@@ -224,32 +229,36 @@ visualizar o portfólio.
 
 ### Variáveis de ambiente
 
-> [!NOTE]
-> O projeto ainda não utiliza variáveis de ambiente. Quando a integração com
-> **Supabase** e o **envio de e-mail** forem implementados, as variáveis necessárias
-> (com o prefixo `VITE_`) serão documentadas aqui, e um arquivo `.env.example`
-> será disponibilizado como referência.
-
-Exemplo de variáveis previstas (ainda não utilizadas):
+O formulário de contato usa o **EmailJS**, que precisa de três variáveis de
+ambiente. Crie um arquivo **`.env`** na raiz do projeto (use o `.env.example`
+como modelo) com os seus valores:
 
 ```env
-# Supabase
-VITE_SUPABASE_URL=<sua-url-do-supabase>
-VITE_SUPABASE_ANON_KEY=<sua-chave-anonima-do-supabase>
+# EmailJS (https://www.emailjs.com/)
+VITE_EMAILJS_SERVICE_ID=seu_service_id_aqui
+VITE_EMAILJS_TEMPLATE_ID=seu_template_id_aqui
+VITE_EMAILJS_PUBLIC_KEY=sua_public_key_aqui
 ```
+
+> [!NOTE]
+> No Vite, as variáveis precisam do prefixo `VITE_`. O arquivo `.env` **não é
+> versionado** (está no `.gitignore`); por isso, em produção, essas variáveis
+> também devem ser cadastradas no painel da Vercel.
 
 ---
 
 ## 🚀 Deploy
 
-O deploy será realizado na **[Vercel](https://vercel.com/)**, com publicação
+O site está hospedado na **[Vercel](https://vercel.com/)**, com publicação
 automática a cada atualização enviada para a branch principal do repositório no GitHub.
 
-- 🌐 **Site publicado:** `<link do deploy na Vercel — em breve>`
+- 🌐 **Site publicado:** <https://danieltsuruga-portifolio.vercel.app/>
 
 > [!NOTE]
-> O link de acesso ao site hospedado será adicionado nesta seção na entrega da
-> Sprint Lab01S03.
+> O formulário de contato usa o **EmailJS**. Para o envio funcionar em produção,
+> as variáveis de ambiente (`VITE_EMAILJS_*`) estão configuradas no painel da
+> Vercel (Project Settings → Environment Variables), já que o arquivo `.env`
+> não é versionado.
 
 ---
 
