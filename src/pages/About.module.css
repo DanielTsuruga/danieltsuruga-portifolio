@@ -1,0 +1,96 @@
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  line-height: 1;
+  margin-bottom: var(--space-lg);
+}
+
+.status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+  padding: var(--space-md) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-lg);
+}
+
+.statusItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.statusLabel {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+.statusValue {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text);
+}
+
+.statusValueAccent {
+  color: var(--color-accent);
+}
+
+.intro {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  max-width: 55ch;
+  margin-bottom: var(--space-xl);
+}
+
+.sections {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionRow {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-lg);
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.sectionLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.sectionLabelNumber {
+  color: var(--color-accent);
+  margin-right: var(--space-xs);
+}
+
+.sectionText {
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .sectionRow {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+}
