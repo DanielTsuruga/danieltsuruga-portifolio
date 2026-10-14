@@ -1,5 +1,7 @@
 import { useState } from 'react'
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp } from 'react-icons/fa'
+import emailjs from '@emailjs/browser'
+import EMAILJS_CONFIG from '../config/emailjs'
 import styles from './Contact.module.css'
 
 const contatos = [
@@ -57,7 +59,6 @@ function Contact() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-
     if (e.currentTarget.website.value) {
       setStatus('sucesso')
       return
@@ -65,15 +66,28 @@ function Contact() {
 
     const novosErros = validar()
     setErros(novosErros)
-    if (Object.keys(novosErros).length > 0) return
+    if (Object.keys(novosErros).length > 0) {
+      setStatus('')
+      return
+    }
 
     setStatus('enviando')
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 800))
+      await emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
+        {
+          nome: form.nome,
+          email: form.email,
+          mensagem: form.mensagem,
+        },
+        { publicKey: EMAILJS_CONFIG.publicKey },
+      )
       setStatus('sucesso')
       setForm({ nome: '', email: '', mensagem: '' })
-    } catch {
+    } catch (error) {
+      console.error('Erro ao enviar e-mail:', error)
       setStatus('erro')
     }
   }
