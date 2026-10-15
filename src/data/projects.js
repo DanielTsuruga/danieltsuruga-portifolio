@@ -9,7 +9,7 @@ export const projects = [
     id: 'ecoflux',
     nome: 'EcoFlux',
     descricao:
-      'Plataforma web para facilitar a reciclagem e a coleta seletiva, conectando população, catadores e empresas.Projeto do 1º semestre.',
+      'Plataforma web para facilitar a reciclagem e a coleta seletiva, conectando população, catadores e empresas. Projeto do 1º semestre.',
     tecnologias: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'JSON Server', 'Express', 'Bootstrap'],
     repo: 'https://github.com/ICEI-PUC-Minas-PMGES-TI/pmg-es-2026-1-ti1-0427100-ecoflux',
     site: 'https://ecoflux-33eg.onrender.com/',
