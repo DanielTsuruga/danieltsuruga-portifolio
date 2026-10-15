@@ -1,0 +1,165 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "resume": "Resume",
+    "contact": "Contact"
+  },
+  "theme": {
+    "light": "Light theme",
+    "dark": "Dark theme",
+    "galo": "Galo theme"
+  },
+  "titles": {
+    "base": "Daniel Tsuruga",
+    "home": "Daniel Tsuruga — Portfolio",
+    "projects": "Projects",
+    "about": "About",
+    "resume": "Resume",
+    "contact": "Contact",
+    "project": "Project",
+    "notFound": "Page not found"
+  },
+  "home": {
+    "eyebrow": "PORTFOLIO",
+    "subtitle": "SOFTWARE ENGINEERING · PUC MINAS",
+    "tagline": "Still learning. Always building.",
+    "signature": "Daniel Tsuruga",
+    "seeProjects": "View projects",
+    "seeResume": "View resume"
+  },
+  "featured": {
+    "eyebrow": "FEATURED PROJECT",
+    "cta": "View project",
+    "previewAlt": "{{name}} preview"
+  },
+  "projects": {
+    "eyebrow": "SELECTED WORK",
+    "title": "Projects",
+    "inDevelopment": "In development",
+    "previewSoon": "Preview coming soon",
+    "previewAlt": "{{name}} preview",
+    "logoAlt": "{{name}} logo"
+  },
+  "projectDetail": {
+    "notFoundTitle": "Project not found",
+    "notFoundText": "The project you are looking for does not exist.",
+    "backToProjects": "Back to projects",
+    "back": "Projects",
+    "eyebrow": "PROJECT · {{year}}",
+    "inDevelopment": "In development",
+    "technologies": "Technologies",
+    "links": "Links",
+    "repository": "Repository",
+    "repoSoon": "GitHub — coming soon",
+    "seeSite": "Visit site",
+    "sectionDescription": "Description",
+    "sectionProblem": "Problem",
+    "sectionSolution": "Solution",
+    "sectionContribution": "My contribution",
+    "infoSoon": "More information soon.",
+    "nextProject": "Next project",
+    "demoAlt": "Demo of {{name}} running",
+    "previewAlt": "{{name}} preview",
+    "logoAlt": "{{name}} logo"
+  },
+  "about": {
+    "intro": "Between university and projects, I'm discovering how to turn what I study into software.",
+    "eyebrow": "01 — ABOUT",
+    "name": "Daniel Tsuruga",
+    "photoAlt": "Illustration of Daniel at his workspace, with references to programming, music and Galo",
+    "locationLabel": "Location",
+    "locationValue": "Belo Horizonte, Brazil",
+    "statusLabel": "Status",
+    "statusValue": "In training",
+    "sections": [
+      {
+        "numero": "01",
+        "label": "Who I am",
+        "texto": "I'm Daniel, a Software Engineering student at PUC Minas, in Belo Horizonte. I'm building my path in programming, trying to understand not only how things work, but also why they work. I enjoy learning by doing and watching my ideas take shape."
+      },
+      {
+        "numero": "02",
+        "label": "What I do",
+        "texto": "I like to learn by building. Through exercises, studies and personal projects, I've been exploring different technologies and discovering new ways to solve problems. More than just making something work, I like to understand what lies behind it and find ways to do it better."
+      },
+      {
+        "numero": "03",
+        "label": "Beyond the code",
+        "texto": "Outside of programming, I'm a great admirer of music, I enjoy football, I support Galo (Atlético-MG) and I have a special interest in philosophy. I like to question things, learn other perspectives and better understand the world around me. I think that curiosity also shows in the way I learn and develop my projects."
+      }
+    ]
+  },
+  "resume": {
+    "eyebrow": "RESUME",
+    "title": "Resume",
+    "viewResume": "View resume",
+    "downloadPdf": "Download PDF",
+    "modalTitle": "Resume — Daniel Tsuruga",
+    "educationLabel": "Education",
+    "course": "Software Engineering - 2nd semester",
+    "institution": "PUC Minas",
+    "educationStatus": "In progress",
+    "knowledgeLabel": "Skills",
+    "experienceLabel": "Experience",
+    "empty": "More information soon.",
+    "experiences": [
+      {
+        "periodo": "2026 · 2nd semester — current",
+        "cargo": "Team lead and project management",
+        "organizacao": "MeuBolso · Interdisciplinary Project — PUC Minas",
+        "descricao": "I lead the team developing MeuBolso, a personal finance control and education application. I work on project management, quality control and documentation, coordinating the team and tracking deliverables."
+      },
+      {
+        "periodo": "2026 · 1st semester",
+        "cargo": "Developer (team)",
+        "organizacao": "EcoFlux · Interdisciplinary Project — PUC Minas",
+        "descricao": "I took part in developing EcoFlux, a recycling and selective waste collection platform. I contributed to problem research, the stakeholder map and solution brainstorming, applying Design Thinking and collaborative work with Git."
+      }
+    ]
+  },
+  "curriculoViewer": {
+    "page_one": "{{count}} page",
+    "page_other": "{{count}} pages",
+    "zoomGroup": "Zoom",
+    "zoomOut": "Zoom out",
+    "zoomIn": "Zoom in",
+    "fitWidth": "Fit to width",
+    "downloadPdf": "Download PDF",
+    "open": "Open",
+    "loading": "Loading resume...",
+    "error": "The PDF could not be displayed here. Use the <0>Download PDF</0> or <1>Open</1> buttons."
+  },
+  "contact": {
+    "eyebrow": "LET'S TALK",
+    "title": "Contact",
+    "subtitle": "Daniel Tsuruga · Software Engineering · PUC Minas",
+    "honeypot": "Do not fill in this field",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@email.com",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Write your message...",
+    "send": "Send message",
+    "sending": "Sending...",
+    "success": "Message sent! I'll get back to you soon. ✅",
+    "error": "Oops, something went wrong. Try again or use one of the links on the side.",
+    "errorName": "Please enter your name.",
+    "errorEmailRequired": "Please enter your email.",
+    "errorEmailInvalid": "Invalid email.",
+    "errorMessage": "Please write a message."
+  },
+  "modal": {
+    "close": "Close"
+  },
+  "footer": {
+    "meta": "BELO HORIZONTE, BRAZIL · © {{year}}"
+  },
+  "notFound": {
+    "eyebrow": "Error 404",
+    "message": "This page doesn't exist or has been moved. But the music keeps playing.",
+    "back": "Back to home"
+  }
+}

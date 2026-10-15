@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import Waveform from '../components/Waveform'
 import { usePageTitle } from '../hooks/usePageTitle'
 import styles from './NotFound.module.css'
 
 function NotFound() {
-  usePageTitle('Página não encontrada')
+  usePageTitle('notFound')
+  const { t } = useTranslation()
 
   return (
     <section className={styles.notFound}>
-      <p className={styles.eyebrow}>Erro 404</p>
+      <p className={styles.eyebrow}>{t('notFound.eyebrow')}</p>
 
       <h1 className={styles.code}>
         404<span className={styles.codeDot}>.</span>
@@ -16,12 +18,10 @@ function NotFound() {
 
       <Waveform barCount={20} height={40} className={styles.wave} />
 
-      <p className={styles.message}>
-        Esta página não existe ou foi movida. Mas a música continua tocando.
-      </p>
+      <p className={styles.message}>{t('notFound.message')}</p>
 
       <Link to="/" className={styles.back}>
-        Voltar ao início <span aria-hidden="true">→</span>
+        {t('notFound.back')} <span aria-hidden="true">→</span>
       </Link>
     </section>
   )

@@ -1,18 +1,23 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { projects } from '../data/projects'
+import { useTranslation } from 'react-i18next'
+import { getLocalizedProjects } from '../data/projects'
 import { usePageTitle } from '../hooks/usePageTitle'
 import styles from './Projects.module.css'
 
 function Projects() {
-  usePageTitle('Projetos')
+  usePageTitle('projects')
+  const { t, i18n } = useTranslation()
+  const lang = i18n.resolvedLanguage || i18n.language
+  const projects = getLocalizedProjects(lang)
+
   const [activeIndex, setActiveIndex] = useState(0)
   const activeProject = projects[activeIndex]
 
   return (
     <section>
-      <span className={styles.eyebrow}>TRABALHOS SELECIONADOS</span>
-      <h1 className={styles.title}>Projetos</h1>
+      <span className={styles.eyebrow}>{t('projects.eyebrow')}</span>
+      <h1 className={styles.title}>{t('projects.title')}</h1>
 
       <div className={styles.layout}>
         <div className={styles.timeline}>
@@ -40,7 +45,7 @@ function Projects() {
                     <h2 className={styles.name}>{project.nome}</h2>
                     <p className={styles.description}>{project.descricao}</p>
                     {project.status === 'em-desenvolvimento' && (
-                      <span className={styles.badge}>Em desenvolvimento</span>
+                      <span className={styles.badge}>{t('projects.inDevelopment')}</span>
                     )}
                   </div>
 
@@ -58,17 +63,17 @@ function Projects() {
             <img
               className={styles.previewImage}
               src={activeProject.preview}
-              alt={`Pré-visualização do ${activeProject.nome}`}
+              alt={t('projects.previewAlt', { name: activeProject.nome })}
             />
           ) : (
             <div className={styles.previewPlaceholder}>
               <img
                 className={styles.previewLogo}
                 src={activeProject.logo}
-                alt={`Logo do ${activeProject.nome}`}
+                alt={t('projects.logoAlt', { name: activeProject.nome })}
               />
-              <span className={styles.previewStatus}>Em desenvolvimento</span>
-              <span className={styles.previewHint}>Pré-visualização em breve</span>
+              <span className={styles.previewStatus}>{t('projects.inDevelopment')}</span>
+              <span className={styles.previewHint}>{t('projects.previewSoon')}</span>
             </div>
           )}
         </div>

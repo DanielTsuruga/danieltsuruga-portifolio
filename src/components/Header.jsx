@@ -1,30 +1,31 @@
-import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { useTheme, THEMES } from '../hooks/useTheme'
+import { LANGUAGES } from '../i18n'
 import styles from './Header.module.css'
 
 const navLinks = [
-  { to: '/', label: 'Início' },
-  { to: '/projetos', label: 'Projetos' },
-  { to: '/sobre', label: 'Sobre' },
-  { to: '/curriculo', label: 'Currículo' },
-  { to: '/contato', label: 'Contato' },
+  { to: '/', key: 'home' },
+  { to: '/projetos', key: 'projects' },
+  { to: '/sobre', key: 'about' },
+  { to: '/curriculo', key: 'resume' },
+  { to: '/contato', key: 'contact' },
 ]
 
-const languages = ['PT', 'EN']
-
-const themeMeta = {
-  light: { icon: '☀', label: 'Tema claro' },
-  dark: { icon: '☾', label: 'Tema escuro' },
-  galo: { icon: '🐓', label: 'Tema galo' },
+const themeIcons = {
+  light: '☀',
+  dark: '☾',
+  galo: '🐓',
 }
 
 function Header() {
+  const { t, i18n } = useTranslation()
+
   // Lógica de tema vinda do nosso hook personalizado.
   const { theme, setTheme } = useTheme()
 
-  // Estado local do idioma selecionado.
-  const [lang, setLang] = useState('PT')
+  // Idioma atual (normalizado para 'pt' ou 'en').
+  const currentLang = i18n.resolvedLanguage || i18n.language
 
   return (
     <header className={styles.header}>
@@ -45,7 +46,7 @@ function Header() {
                 isActive ? `${styles.link} ${styles.linkActive}` : styles.link
               }
             >
-              {link.label}
+              {t(`nav.${link.key}`)}
             </NavLink>
           ))}
         </nav>
@@ -54,18 +55,19 @@ function Header() {
         <div className={styles.actions}>
           {/* Idioma (PT | EN) */}
           <div className={styles.langGroup}>
-            {languages.map((option) => (
+            {LANGUAGES.map(({ code, label }) => (
               <button
-                key={option}
+                key={code}
                 type="button"
-                onClick={() => setLang(option)}
+                onClick={() => i18n.changeLanguage(code)}
+                aria-pressed={currentLang === code}
                 className={
-                  lang === option
+                  currentLang === code
                     ? `${styles.langButton} ${styles.langActive}`
                     : styles.langButton
                 }
               >
-                {option}
+                {label}
               </button>
             ))}
           </div>
@@ -79,15 +81,15 @@ function Header() {
                 key={option}
                 type="button"
                 onClick={() => setTheme(option)}
-                title={themeMeta[option].label}
-                aria-label={themeMeta[option].label}
+                title={t(`theme.${option}`)}
+                aria-label={t(`theme.${option}`)}
                 className={
                   theme === option
                     ? `${styles.iconButton} ${styles.themeActive}`
                     : styles.iconButton
                 }
               >
-                {themeMeta[option].icon}
+                {themeIcons[option]}
               </button>
             ))}
           </div>

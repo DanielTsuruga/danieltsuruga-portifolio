@@ -1,0 +1,165 @@
+{
+  "nav": {
+    "home": "Início",
+    "projects": "Projetos",
+    "about": "Sobre",
+    "resume": "Currículo",
+    "contact": "Contato"
+  },
+  "theme": {
+    "light": "Tema claro",
+    "dark": "Tema escuro",
+    "galo": "Tema galo"
+  },
+  "titles": {
+    "base": "Daniel Tsuruga",
+    "home": "Daniel Tsuruga — Portfólio",
+    "projects": "Projetos",
+    "about": "Sobre",
+    "resume": "Currículo",
+    "contact": "Contato",
+    "project": "Projeto",
+    "notFound": "Página não encontrada"
+  },
+  "home": {
+    "eyebrow": "PORTFÓLIO",
+    "subtitle": "ENGENHARIA DE SOFTWARE · PUC MINAS",
+    "tagline": "Ainda aprendendo. Sempre construindo.",
+    "signature": "Daniel Tsuruga",
+    "seeProjects": "Ver projetos",
+    "seeResume": "Ver currículo"
+  },
+  "featured": {
+    "eyebrow": "PROJETO EM DESTAQUE",
+    "cta": "Ver projeto",
+    "previewAlt": "Pré-visualização do {{name}}"
+  },
+  "projects": {
+    "eyebrow": "TRABALHOS SELECIONADOS",
+    "title": "Projetos",
+    "inDevelopment": "Em desenvolvimento",
+    "previewSoon": "Pré-visualização em breve",
+    "previewAlt": "Pré-visualização do {{name}}",
+    "logoAlt": "Logo do {{name}}"
+  },
+  "projectDetail": {
+    "notFoundTitle": "Projeto não encontrado",
+    "notFoundText": "O projeto que você procura não existe.",
+    "backToProjects": "Voltar para projetos",
+    "back": "Projetos",
+    "eyebrow": "PROJETO · {{year}}",
+    "inDevelopment": "Em desenvolvimento",
+    "technologies": "Tecnologias",
+    "links": "Links",
+    "repository": "Repositório",
+    "repoSoon": "GitHub — em breve",
+    "seeSite": "Ver site",
+    "sectionDescription": "Descrição",
+    "sectionProblem": "Problema",
+    "sectionSolution": "Solução",
+    "sectionContribution": "Minha contribuição",
+    "infoSoon": "Informações em breve.",
+    "nextProject": "Próximo projeto",
+    "demoAlt": "Demonstração do {{name}} em funcionamento",
+    "previewAlt": "Pré-visualização do {{name}}",
+    "logoAlt": "Logo do {{name}}"
+  },
+  "about": {
+    "intro": "Entre a graduação e os projetos, estou descobrindo como transformar o que estudo em software.",
+    "eyebrow": "01 — SOBRE",
+    "name": "Daniel Tsuruga",
+    "photoAlt": "Ilustração do Daniel em seu espaço de trabalho, com referências a programação, música e ao Galo",
+    "locationLabel": "Localização",
+    "locationValue": "Belo Horizonte, BR",
+    "statusLabel": "Situação",
+    "statusValue": "Em formação",
+    "sections": [
+      {
+        "numero": "01",
+        "label": "Quem sou",
+        "texto": "Sou Daniel, estudante de Engenharia de Software na PUC Minas, em Belo Horizonte. Estou construindo meu caminho na programação, tentando entender não só como as coisas funcionam, mas também por que funcionam. Gosto de aprender na prática e ver minhas ideias ganhando forma."
+      },
+      {
+        "numero": "02",
+        "label": "O que faço",
+        "texto": "Gosto de aprender construindo. Entre exercícios, estudos e projetos pessoais, venho explorando diferentes tecnologias e descobrindo novas formas de resolver problemas. Mais do que fazer algo funcionar, gosto de entender o que existe por trás e encontrar maneiras de fazer melhor."
+      },
+      {
+        "numero": "03",
+        "label": "Além do código",
+        "texto": "Fora da programação, sou um grande admirador da música, gosto de futebol, torço para o galo e tenho um interesse especial por filosofia. Gosto de questionar as coisas, conhecer outras perspectivas e entender melhor o mundo ao meu redor. Acho que essa curiosidade também aparece na forma como aprendo e desenvolvo meus projetos."
+      }
+    ]
+  },
+  "resume": {
+    "eyebrow": "CURRÍCULO",
+    "title": "Currículo",
+    "viewResume": "Visualizar currículo",
+    "downloadPdf": "Baixar PDF",
+    "modalTitle": "Currículo — Daniel Tsuruga",
+    "educationLabel": "Formação",
+    "course": "Engenharia de Software - 2º semestre",
+    "institution": "PUC Minas",
+    "educationStatus": "Em andamento",
+    "knowledgeLabel": "Conhecimentos",
+    "experienceLabel": "Experiência",
+    "empty": "Informações em breve.",
+    "experiences": [
+      {
+        "periodo": "2026 · 2º semestre — atual",
+        "cargo": "Líder de equipe e gestão de projeto",
+        "organizacao": "MeuBolso · Trabalho Interdisciplinar — PUC Minas",
+        "descricao": "Lidero a equipe no desenvolvimento do MeuBolso, aplicação de controle e educação financeira. Atuo na gestão do projeto, no controle de qualidade e na documentação, coordenando o time e acompanhando as entregas."
+      },
+      {
+        "periodo": "2026 · 1º semestre",
+        "cargo": "Desenvolvedor (equipe)",
+        "organizacao": "EcoFlux · Trabalho Interdisciplinar — PUC Minas",
+        "descricao": "Participei do desenvolvimento do EcoFlux, plataforma de reciclagem e coleta seletiva. Contribuí na pesquisa do problema, no mapa de stakeholders e no brainstorming de soluções, aplicando Design Thinking e trabalho colaborativo com Git."
+      }
+    ]
+  },
+  "curriculoViewer": {
+    "page_one": "{{count}} página",
+    "page_other": "{{count}} páginas",
+    "zoomGroup": "Zoom",
+    "zoomOut": "Diminuir zoom",
+    "zoomIn": "Aumentar zoom",
+    "fitWidth": "Ajustar à largura",
+    "downloadPdf": "Baixar PDF",
+    "open": "Abrir",
+    "loading": "Carregando currículo...",
+    "error": "Não foi possível exibir o PDF aqui. Use os botões <0>Baixar PDF</0> ou <1>Abrir</1>."
+  },
+  "contact": {
+    "eyebrow": "VAMOS CONVERSAR",
+    "title": "Contato",
+    "subtitle": "Daniel Tsuruga · Engenharia de Software · PUC Minas",
+    "honeypot": "Não preencha este campo",
+    "nameLabel": "Nome",
+    "namePlaceholder": "Seu nome",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "seu@email.com",
+    "messageLabel": "Mensagem",
+    "messagePlaceholder": "Escreva sua mensagem...",
+    "send": "Enviar mensagem",
+    "sending": "Enviando...",
+    "success": "Mensagem enviada! Em breve retornarei o contato. ✅",
+    "error": "Ops, algo deu errado. Tente novamente ou use um dos links ao lado.",
+    "errorName": "Informe seu nome.",
+    "errorEmailRequired": "Informe seu e-mail.",
+    "errorEmailInvalid": "E-mail inválido.",
+    "errorMessage": "Escreva uma mensagem."
+  },
+  "modal": {
+    "close": "Fechar"
+  },
+  "footer": {
+    "meta": "BELO HORIZONTE, BR · © {{year}}"
+  },
+  "notFound": {
+    "eyebrow": "Erro 404",
+    "message": "Esta página não existe ou foi movida. Mas a música continua tocando.",
+    "back": "Voltar ao início"
+  }
+}
