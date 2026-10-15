@@ -1,5 +1,6 @@
 import ecofluxLogo from '../assets/projetos/ecoflux-logo.png'
 import ecofluxPreview from '../assets/projetos/ecoflux-preview.png'
+import ecofluxDemo from '../assets/projetos/ecoflux-demo.gif'
 import meubolsoLogo from '../assets/projetos/meubolso-logo.png'
 import bankpyLogo from '../assets/projetos/bankpy-logo.png'
 
@@ -18,6 +19,7 @@ export const projects = [
     equipe: true,
     logo: ecofluxLogo,
     preview: ecofluxPreview,
+    demo: ecofluxDemo, // GIF de demonstração (aparece na página de detalhe)
     detalhes: {
       descricao:
         'O EcoFlux é uma plataforma web que torna a reciclagem e a coleta seletiva mais simples e acessíveis no dia a dia. O sistema reúne pontos de coleta, calendário de coleta por região, cadastro de empresas de reciclagem e solicitação de coleta, conectando população, catadores e gestores públicos.',

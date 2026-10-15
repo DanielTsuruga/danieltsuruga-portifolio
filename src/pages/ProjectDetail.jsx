@@ -77,7 +77,11 @@ function ProjectDetail() {
         </div>
       </header>
 
-      {project.preview ? (
+      {project.demo ? (
+        <div className={styles.preview}>
+          <img src={project.demo} alt={`Demonstração do ${project.nome} em funcionamento`} />
+        </div>
+      ) : project.preview ? (
         <div className={styles.preview}>
           <img src={project.preview} alt={`Pré-visualização do ${project.nome}`} />
         </div>
