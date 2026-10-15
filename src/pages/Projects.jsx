@@ -15,38 +15,42 @@ function Projects() {
       <h1 className={styles.title}>Projetos</h1>
 
       <div className={styles.layout}>
-        <div className={styles.list}>
-          {projects.map((project, index) => {
-            const numero = String(index + 1).padStart(2, '0')
-            const ativo = index === activeIndex
+        <div className={styles.timeline}>
+          <div className={styles.yearMarker}>
+            <span className={styles.yearDot} aria-hidden="true" />
+            <span className={styles.yearLabel}>2026</span>
+          </div>
 
-            return (
-              <Link
-                key={project.id}
-                to={`/projetos/${project.id}`}
-                onMouseEnter={() => setActiveIndex(index)}
-                onFocus={() => setActiveIndex(index)}
-                className={`${styles.item} ${ativo ? styles.itemActive : ''}`}
-              >
-                <div className={styles.meta}>
+          <div className={styles.list}>
+            {projects.map((project, index) => {
+              const numero = String(index + 1).padStart(2, '0')
+              const ativo = index === activeIndex
+
+              return (
+                <Link
+                  key={project.id}
+                  to={`/projetos/${project.id}`}
+                  onMouseEnter={() => setActiveIndex(index)}
+                  onFocus={() => setActiveIndex(index)}
+                  className={`${styles.item} ${ativo ? styles.itemActive : ''}`}
+                >
                   <span className={styles.number}>{numero}</span>
-                  <span className={styles.year}>{project.ano}</span>
-                </div>
 
-                <div className={styles.info}>
-                  <h2 className={styles.name}>{project.nome}</h2>
-                  <p className={styles.description}>{project.descricao}</p>
-                  {project.status === 'em-desenvolvimento' && (
-                    <span className={styles.badge}>Em desenvolvimento</span>
-                  )}
-                </div>
+                  <div className={styles.info}>
+                    <h2 className={styles.name}>{project.nome}</h2>
+                    <p className={styles.description}>{project.descricao}</p>
+                    {project.status === 'em-desenvolvimento' && (
+                      <span className={styles.badge}>Em desenvolvimento</span>
+                    )}
+                  </div>
 
-                <span className={styles.arrow} aria-hidden="true">
-                  ↗
-                </span>
-              </Link>
-            )
-          })}
+                  <span className={styles.arrow} aria-hidden="true">
+                    ↗
+                  </span>
+                </Link>
+              )
+            })}
+          </div>
         </div>
 
         <div className={styles.previewPane}>
