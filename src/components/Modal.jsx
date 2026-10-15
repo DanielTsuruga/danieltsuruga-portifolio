@@ -1,7 +1,10 @@
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import styles from './Modal.module.css'
 
 function Modal({ title, onClose, children }) {
+  const { t } = useTranslation()
+
   useEffect(() => {
     function handleKey(e) {
       if (e.key === 'Escape') onClose()
@@ -29,7 +32,7 @@ function Modal({ title, onClose, children }) {
             type="button"
             className={styles.close}
             onClick={onClose}
-            aria-label="Fechar"
+            aria-label={t('modal.close')}
           >
             ✕
           </button>

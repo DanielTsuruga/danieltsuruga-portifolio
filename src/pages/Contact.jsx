@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp } from 'react-icons/fa'
+import { useTranslation } from 'react-i18next'
 import emailjs from '@emailjs/browser'
 import EMAILJS_CONFIG from '../config/emailjs'
 import { usePageTitle } from '../hooks/usePageTitle'
@@ -37,7 +38,8 @@ const MAX_EMAIL = 254
 const MAX_MENSAGEM = 2000
 
 function Contact() {
-  usePageTitle('Contato')
+  usePageTitle('contact')
+  const { t } = useTranslation()
 
   const [form, setForm] = useState({ nome: '', email: '', mensagem: '' })
   const [erros, setErros] = useState({})
@@ -50,13 +52,13 @@ function Contact() {
 
   function validar() {
     const novosErros = {}
-    if (!form.nome.trim()) novosErros.nome = 'Informe seu nome.'
+    if (!form.nome.trim()) novosErros.nome = t('contact.errorName')
     if (!form.email.trim()) {
-      novosErros.email = 'Informe seu e-mail.'
+      novosErros.email = t('contact.errorEmailRequired')
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      novosErros.email = 'E-mail inválido.'
+      novosErros.email = t('contact.errorEmailInvalid')
     }
-    if (!form.mensagem.trim()) novosErros.mensagem = 'Escreva uma mensagem.'
+    if (!form.mensagem.trim()) novosErros.mensagem = t('contact.errorMessage')
     return novosErros
   }
 
@@ -97,11 +99,9 @@ function Contact() {
 
   return (
     <section>
-      <p className={styles.eyebrow}>VAMOS CONVERSAR</p>
-      <h1 className={styles.title}>Contato</h1>
-      <p className={styles.subtitle}>
-        Daniel Tsuruga · Engenharia de Software · PUC Minas
-      </p>
+      <p className={styles.eyebrow}>{t('contact.eyebrow')}</p>
+      <h1 className={styles.title}>{t('contact.title')}</h1>
+      <p className={styles.subtitle}>{t('contact.subtitle')}</p>
 
       <div className={styles.layout}>
         <div className={styles.links}>
@@ -128,14 +128,14 @@ function Contact() {
         <form className={styles.form} onSubmit={handleSubmit} noValidate>
           <div className={styles.honeypot} aria-hidden="true">
             <label>
-              Não preencha este campo
+              {t('contact.honeypot')}
               <input type="text" name="website" tabIndex={-1} autoComplete="off" />
             </label>
           </div>
 
           <div className={styles.field}>
             <label className={styles.label} htmlFor="nome">
-              Nome
+              {t('contact.nameLabel')}
             </label>
             <input
               className={`${styles.input} ${erros.nome ? styles.inputError : ''}`}
@@ -145,14 +145,14 @@ function Contact() {
               maxLength={MAX_NOME}
               value={form.nome}
               onChange={handleChange}
-              placeholder="Seu nome"
+              placeholder={t('contact.namePlaceholder')}
             />
             {erros.nome && <span className={styles.errorMsg}>{erros.nome}</span>}
           </div>
 
           <div className={styles.field}>
             <label className={styles.label} htmlFor="email">
-              E-mail
+              {t('contact.emailLabel')}
             </label>
             <input
               className={`${styles.input} ${erros.email ? styles.inputError : ''}`}
@@ -162,14 +162,14 @@ function Contact() {
               maxLength={MAX_EMAIL}
               value={form.email}
               onChange={handleChange}
-              placeholder="seu@email.com"
+              placeholder={t('contact.emailPlaceholder')}
             />
             {erros.email && <span className={styles.errorMsg}>{erros.email}</span>}
           </div>
 
           <div className={styles.field}>
             <label className={styles.label} htmlFor="mensagem">
-              Mensagem
+              {t('contact.messageLabel')}
             </label>
             <textarea
               className={`${styles.textarea} ${erros.mensagem ? styles.inputError : ''}`}
@@ -178,24 +178,20 @@ function Contact() {
               maxLength={MAX_MENSAGEM}
               value={form.mensagem}
               onChange={handleChange}
-              placeholder="Escreva sua mensagem..."
+              placeholder={t('contact.messagePlaceholder')}
             />
             {erros.mensagem && <span className={styles.errorMsg}>{erros.mensagem}</span>}
           </div>
 
           <button className={styles.submit} type="submit" disabled={status === 'enviando'}>
-            {status === 'enviando' ? 'Enviando...' : 'Enviar mensagem'}
+            {status === 'enviando' ? t('contact.sending') : t('contact.send')}
           </button>
 
           {status === 'sucesso' && (
-            <p className={`${styles.status} ${styles.statusSuccess}`}>
-              Mensagem enviada! Em breve retornarei o contato. ✅
-            </p>
+            <p className={`${styles.status} ${styles.statusSuccess}`}>{t('contact.success')}</p>
           )}
           {status === 'erro' && (
-            <p className={`${styles.status} ${styles.statusError}`}>
-              Ops, algo deu errado. Tente novamente ou use um dos links ao lado.
-            </p>
+            <p className={`${styles.status} ${styles.statusError}`}>{t('contact.error')}</p>
           )}
         </form>
       </div>

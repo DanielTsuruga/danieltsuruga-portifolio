@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { FiDownload, FiExternalLink, FiZoomIn, FiZoomOut, FiMaximize2 } from 'react-icons/fi'
 import { Document, Page, pdfjs } from 'react-pdf'
+import { useTranslation, Trans } from 'react-i18next'
 import 'react-pdf/dist/Page/AnnotationLayer.css'
 import 'react-pdf/dist/Page/TextLayer.css'
 import CURRICULO_CONFIG from '../config/curriculo'
@@ -13,6 +14,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = workerUrl
 const { file, downloadName, zoomMin, zoomMax, zoomStep } = CURRICULO_CONFIG
 
 function CurriculoViewer() {
+  const { t } = useTranslation()
   const areaRef = useRef(null)
   const [pages, setPages] = useState(0)
   const [zoom, setZoom] = useState(1)
@@ -39,19 +41,17 @@ function CurriculoViewer() {
     <div className={styles.viewer}>
       <div className={styles.toolbar}>
         {pages > 0 && (
-          <span className={styles.pages}>
-            {pages} {pages === 1 ? 'página' : 'páginas'}
-          </span>
+          <span className={styles.pages}>{t('curriculoViewer.page', { count: pages })}</span>
         )}
 
-        <div className={styles.zoom} role="group" aria-label="Zoom">
+        <div className={styles.zoom} role="group" aria-label={t('curriculoViewer.zoomGroup')}>
           <button
             type="button"
             className={styles.zoomButton}
             onClick={() => changeZoom(-zoomStep)}
             disabled={zoom <= zoomMin}
-            title="Diminuir zoom"
-            aria-label="Diminuir zoom"
+            title={t('curriculoViewer.zoomOut')}
+            aria-label={t('curriculoViewer.zoomOut')}
           >
             <FiZoomOut aria-hidden="true" />
           </button>
@@ -63,8 +63,8 @@ function CurriculoViewer() {
             className={styles.zoomButton}
             onClick={() => changeZoom(zoomStep)}
             disabled={zoom >= zoomMax}
-            title="Aumentar zoom"
-            aria-label="Aumentar zoom"
+            title={t('curriculoViewer.zoomIn')}
+            aria-label={t('curriculoViewer.zoomIn')}
           >
             <FiZoomIn aria-hidden="true" />
           </button>
@@ -73,8 +73,8 @@ function CurriculoViewer() {
             className={styles.zoomButton}
             onClick={() => setZoom(1)}
             disabled={zoom === 1}
-            title="Ajustar à largura"
-            aria-label="Ajustar à largura"
+            title={t('curriculoViewer.fitWidth')}
+            aria-label={t('curriculoViewer.fitWidth')}
           >
             <FiMaximize2 aria-hidden="true" />
           </button>
@@ -86,7 +86,7 @@ function CurriculoViewer() {
             href={file}
             download={downloadName}
           >
-            <FiDownload aria-hidden="true" /> Baixar PDF
+            <FiDownload aria-hidden="true" /> {t('curriculoViewer.downloadPdf')}
           </a>
           <a
             className={styles.actionButton}
@@ -94,18 +94,20 @@ function CurriculoViewer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FiExternalLink aria-hidden="true" /> Abrir
+            <FiExternalLink aria-hidden="true" /> {t('curriculoViewer.open')}
           </a>
         </div>
       </div>
 
       <div className={styles.area} ref={areaRef}>
-        {loading && <p className={styles.status}>Carregando currículo...</p>}
+        {loading && <p className={styles.status}>{t('curriculoViewer.loading')}</p>}
 
         {error ? (
           <p className={`${styles.status} ${styles.error}`}>
-            Não foi possível exibir o PDF aqui. Use os botões <strong>Baixar PDF</strong> ou{' '}
-            <strong>Abrir</strong>.
+            <Trans i18nKey="curriculoViewer.error">
+              Não foi possível exibir o PDF aqui. Use os botões <strong>Baixar PDF</strong> ou{' '}
+              <strong>Abrir</strong>.
+            </Trans>
           </p>
         ) : (
           <Document
