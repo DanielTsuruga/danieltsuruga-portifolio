@@ -57,9 +57,8 @@
 
 .year {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   color: var(--color-text-muted);
-  opacity: 0.7;
 }
 
 .info {
@@ -153,7 +152,6 @@
 .previewHint {
   font-size: 0.8rem;
   color: var(--color-text-muted);
-  opacity: 0.7;
 }
 
 @media (max-width: 900px) {

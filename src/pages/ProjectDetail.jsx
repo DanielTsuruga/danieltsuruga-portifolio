@@ -1,10 +1,13 @@
 import { useParams, Link } from 'react-router-dom'
 import { getProjectById, getNextProject } from '../data/projects'
+import { usePageTitle } from '../hooks/usePageTitle'
 import styles from './ProjectDetail.module.css'
 
 function ProjectDetail() {
   const { id } = useParams()
   const project = getProjectById(id)
+
+  usePageTitle(project ? project.nome : 'Projeto')
 
   if (!project) {
     return (

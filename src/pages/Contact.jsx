@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp } from 'react-icons/fa'
 import emailjs from '@emailjs/browser'
 import EMAILJS_CONFIG from '../config/emailjs'
+import { usePageTitle } from '../hooks/usePageTitle'
 import styles from './Contact.module.css'
 
 const contatos = [
@@ -36,6 +37,8 @@ const MAX_EMAIL = 254
 const MAX_MENSAGEM = 2000
 
 function Contact() {
+  usePageTitle('Contato')
+
   const [form, setForm] = useState({ nome: '', email: '', mensagem: '' })
   const [erros, setErros] = useState({})
   const [status, setStatus] = useState('')

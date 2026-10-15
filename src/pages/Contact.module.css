@@ -108,7 +108,8 @@
 
 .input:focus,
 .textarea:focus {
-  outline: none;
+  /* A borda azul dá o feedback visual no clique; o contorno de
+     acessibilidade por teclado vem da regra global :focus-visible. */
   border-color: var(--color-accent);
 }
 

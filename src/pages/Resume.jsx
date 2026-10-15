@@ -1,3 +1,4 @@
+import { usePageTitle } from '../hooks/usePageTitle'
 import styles from './Resume.module.css'
 
 const formacao = {
@@ -28,6 +29,8 @@ const experiencias = [
 const curriculoPdf = null
 
 function Resume() {
+  usePageTitle('Currículo')
+
   return (
     <section>
       <p className={styles.eyebrow}>CURRÍCULO</p>

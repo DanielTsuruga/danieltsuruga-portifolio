@@ -30,10 +30,6 @@
   background-color: var(--color-text-muted);
 }
 
-.eyebrowNumber {
-  color: var(--color-accent);
-}
-
 .title {
   font-family: var(--font-heading);
   font-weight: 800;

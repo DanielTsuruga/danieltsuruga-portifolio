@@ -9,6 +9,7 @@ import ProjectDetail from './pages/ProjectDetail'
 import About from './pages/About'
 import Resume from './pages/Resume'
 import Contact from './pages/Contact'
+import NotFound from './pages/NotFound'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/sobre" element={<About />} />
           <Route path="/curriculo" element={<Resume />} />
           <Route path="/contato" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
 

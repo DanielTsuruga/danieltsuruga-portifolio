@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom'
 import Waveform from '../components/Waveform'
 import FeaturedProject from '../components/FeaturedProject'
+import { usePageTitle } from '../hooks/usePageTitle'
 import styles from './Home.module.css'
 
 function Home() {
+  usePageTitle() 
+
   return (
     <>
       <section className={styles.hero}>

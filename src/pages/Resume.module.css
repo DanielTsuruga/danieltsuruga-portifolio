@@ -54,7 +54,7 @@
 
 .itemStatus {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-accent);
@@ -100,7 +100,6 @@
 
 .empty {
   color: var(--color-text-muted);
-  opacity: 0.7;
   font-style: italic;
 }
 

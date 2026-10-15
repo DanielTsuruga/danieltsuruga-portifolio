@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { projects } from '../data/projects'
+import { usePageTitle } from '../hooks/usePageTitle'
 import styles from './Projects.module.css'
 
 function Projects() {
+  usePageTitle('Projetos')
   const [activeIndex, setActiveIndex] = useState(0)
   const activeProject = projects[activeIndex]
 

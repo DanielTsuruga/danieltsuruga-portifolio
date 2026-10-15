@@ -1,0 +1,55 @@
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-md);
+  padding: var(--space-xl) 0;
+  min-height: 50vh;
+  justify-content: center;
+}
+
+.code {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(4rem, 15vw, 9rem);
+  line-height: 1;
+  color: var(--color-text);
+}
+
+.codeDot {
+  color: var(--color-accent);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.message {
+  color: var(--color-text-muted);
+  max-width: 40ch;
+}
+
+.wave {
+  width: 220px;
+  margin: var(--space-sm) 0;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--color-text);
+  transition: gap 0.2s ease;
+}
+
+.back:hover {
+  gap: var(--space-sm);
+}

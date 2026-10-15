@@ -44,7 +44,7 @@
   display: inline-block;
   margin-top: var(--space-sm);
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0.2rem 0.5rem;
@@ -176,7 +176,6 @@
 
 .sectionEmpty {
   color: var(--color-text-muted);
-  opacity: 0.7;
   font-style: italic;
 }
 

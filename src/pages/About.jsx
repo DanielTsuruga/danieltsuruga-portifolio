@@ -1,3 +1,4 @@
+import { usePageTitle } from '../hooks/usePageTitle'
 import styles from './About.module.css'
 
 const intro =
@@ -25,12 +26,13 @@ const sections = [
 ]
 
 function About() {
+  usePageTitle('Sobre')
+
   return (
     <section>
       <p className={styles.eyebrow}>01 — SOBRE</p>
       <h1 className={styles.title}>Daniel Tsuruga</h1>
 
-      {/* Linha de status */}
       <div className={styles.status}>
         <div className={styles.statusItem}>
           <span className={styles.statusLabel}>Localização</span>
