@@ -71,13 +71,13 @@ O site foi construído com foco em **design responsivo**, **boa usabilidade** e 
 > As funcionalidades abaixo representam o escopo planejado do portfólio.
 > O status indica o que já foi implementado em cada sprint.
 
-- 🌐 **Internacionalização (i18n):** conteúdo disponível em **português** e **inglês**. ⏳ _Planejado_
-- 👤 **Sobre Mim:** apresentação pessoal com formação, atuação, interesses e objetivos. ⏳ _Planejado_
-- 🗂️ **Projetos:** linha do tempo (timeline) com nome, descrição, tecnologias, link do GitHub e imagem/GIF de cada projeto. ⏳ _Planejado_
-- 💼 **Experiências:** histórico profissional/acadêmico com instituição, cargo, período e descrição. ⏳ _Planejado_
-- 📬 **Contato:** ícones clicáveis (e-mail, WhatsApp, LinkedIn) e formulário com envio de e-mail. ⏳ _Planejado_
-- 🎨 **Temas:** alternância entre tema claro e escuro. ⏳ _Planejado_
-- 📱 **Design responsivo:** adaptação a desktop, tablet e mobile. ⏳ _Planejado_
+- 🌐 **Internacionalização (i18n):** conteúdo disponível em **português** e **inglês** (incluindo o currículo em PDF por idioma). ✅ _Implementado_
+- 👤 **Sobre Mim:** apresentação pessoal com formação, atuação, interesses e objetivos. ✅ _Implementado_
+- 🗂️ **Projetos:** linha do tempo (timeline) com nome, descrição, tecnologias, link do GitHub e imagem/GIF de cada projeto. ✅ _Implementado_
+- 💼 **Experiências:** histórico profissional/acadêmico com instituição, cargo, período e descrição. ✅ _Implementado_
+- 📬 **Contato:** ícones clicáveis (e-mail, WhatsApp, LinkedIn) e formulário com envio de e-mail. ✅ _Implementado_
+- 🎨 **Temas:** alternância entre tema claro e escuro. ✅ _Implementado_
+- 📱 **Design responsivo:** adaptação a desktop, tablet e mobile. ✅ _Implementado_
 
 ---
 
@@ -94,6 +94,8 @@ construção deste projeto.
 | [React Router](https://reactrouter.com/) | 7 | Roteamento entre as páginas (navegação sem recarregar). |
 | [Vite](https://vite.dev/) | 8 | Build tool e servidor de desenvolvimento rápido. |
 | [react-icons](https://react-icons.github.io/react-icons/) | 5 | Ícones (GitHub, LinkedIn, WhatsApp, e-mail) na página de contato. |
+| [react-i18next](https://react.i18next.com/) | — | Internacionalização (i18n): conteúdo em português e inglês. |
+| [react-pdf](https://github.com/wojtekmaj/react-pdf) | — | Visualização do currículo em PDF direto na página. |
 | JavaScript (ES6+) | — | Linguagem de programação principal do projeto. |
 | CSS Modules | — | Estilização com escopo isolado por componente + variáveis CSS (tokens). |
 
@@ -108,7 +110,7 @@ construção deste projeto.
 
 | Tecnologia | Descrição |
 | :--- | :--- |
-| [Vercel](https://vercel.com/) | Hospedagem do front-end com deploy contínuo a partir do GitHub. ⏳ _Planejado_ |
+| [Vercel](https://vercel.com/) | Hospedagem do front-end com deploy contínuo a partir do GitHub. ✅ _Implementado_ |
 | [Git](https://git-scm.com/) & [GitHub](https://github.com/) | Controle de versão e hospedagem do código-fonte. |
 
 ### 🔧 Ferramentas de Desenvolvimento
@@ -156,25 +158,34 @@ A estrutura abaixo descreve a organização atual do projeto (front-end em React
 danieltsuruga-portifolio/
 ├── docs/                       # 📚 Documentação e protótipos
 │   └── prototipos/             # 🖼️ Wireframes das telas (usados no README)
-├── public/                     # 📂 Arquivos estáticos servidos diretamente (favicon, etc.)
+├── public/                     # 📂 Arquivos estáticos (favicon, currículos em PDF, etc.)
 ├── src/                        # 📂 Código-fonte da aplicação
 │   ├── assets/                 # 🖼️ Imagens e recursos importados no código
 │   ├── components/             # 🧱 Componentes reutilizáveis
 │   │   ├── Header.jsx           #    Barra de navegação do topo (menu, idioma, tema)
-│   │   ├── Header.module.css
 │   │   ├── Footer.jsx           #    Rodapé (mini-waveform + ano dinâmico)
-│   │   ├── Footer.module.css
 │   │   ├── Waveform.jsx         #    Onda sonora animada (reutilizável via props)
-│   │   └── Waveform.module.css
+│   │   ├── FeaturedProject.jsx  #    Projeto em destaque na Home
+│   │   ├── Modal.jsx            #    Modal reutilizável (usado no currículo)
+│   │   ├── CurriculoViewer.jsx  #    Visualizador de PDF do currículo (por idioma)
+│   │   ├── ScrollToTop.jsx      #    Rola ao topo ao trocar de rota
+│   │   └── *.module.css         #    Estilos isolados de cada componente
 │   ├── pages/                  # 📄 Páginas (uma por rota)
 │   │   ├── Home.jsx             #    Início (/)
-│   │   ├── Home.module.css
 │   │   ├── Projects.jsx         #    Projetos (/projetos)
+│   │   ├── ProjectDetail.jsx    #    Detalhe do projeto (/projetos/:id)
 │   │   ├── About.jsx            #    Sobre (/sobre)
 │   │   ├── Resume.jsx           #    Currículo (/curriculo)
-│   │   └── Contact.jsx          #    Contato (/contato)
+│   │   ├── Contact.jsx          #    Contato (/contato)
+│   │   └── NotFound.jsx         #    Página 404
 │   ├── hooks/                  # 🎣 Hooks personalizados
-│   │   └── useTheme.js          #    Lógica de tema (estado + persistência)
+│   │   ├── useTheme.js          #    Lógica de tema (estado + persistência)
+│   │   └── usePageTitle.js      #    Título da aba + idioma do documento
+│   ├── i18n/                   # 🌐 Internacionalização (react-i18next)
+│   │   ├── index.js             #    Configuração do i18n (detecção + persistência)
+│   │   └── locales/             #    Traduções: pt.json e en.json
+│   ├── config/                 # ⚙️ Configurações (EmailJS, currículo)
+│   ├── data/                   # 🗂️ Dados dos projetos (bilíngues PT/EN)
 │   ├── App.jsx                 # 🧩 Componente raiz: define as rotas
 │   ├── main.jsx                # 🚪 Ponto de entrada: renderiza o App no HTML
 │   └── index.css               # 🎨 Estilos globais (tokens de design e temas)
@@ -264,9 +275,13 @@ automática a cada atualização enviada para a branch principal do repositório
 
 ## 🎥 Demonstração
 
+O portfólio está no ar e pode ser navegado diretamente:
+
+- 🌐 **Site publicado:** <https://danieltsuruga-portifolio.vercel.app/>
+
 > [!NOTE]
-> As imagens e GIFs demonstrando o site e os projetos em funcionamento serão
-> adicionados aqui ao longo do desenvolvimento (previsto para a Sprint Lab01S03).
+> Um GIF demonstrando o projeto **EcoFlux** em funcionamento (navegação pelo
+> site no ar) será adicionado aqui como complemento visual.
 
 ---
 
