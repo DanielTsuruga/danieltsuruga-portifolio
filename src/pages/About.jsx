@@ -1,4 +1,5 @@
 import { usePageTitle } from '../hooks/usePageTitle'
+import fotoPerfil from '../assets/foto-perfil.png'
 import styles from './About.module.css'
 
 const intro =
@@ -30,21 +31,35 @@ function About() {
 
   return (
     <section>
-      <p className={styles.eyebrow}>01 — SOBRE</p>
-      <h1 className={styles.title}>Daniel Tsuruga</h1>
-
-      <div className={styles.status}>
-        <div className={styles.statusItem}>
-          <span className={styles.statusLabel}>Localização</span>
-          <span className={styles.statusValue}>Belo Horizonte, BR</span>
+      <div className={styles.header}>
+        <div className={styles.photoFrame}>
+          <img
+            className={styles.photo}
+            src={fotoPerfil}
+            alt="Ilustração do Daniel em seu espaço de trabalho, com referências a programação, música e ao Galo"
+          />
         </div>
-        <div className={styles.statusItem}>
-          <span className={styles.statusLabel}>Situação</span>
-          <span className={`${styles.statusValue} ${styles.statusValueAccent}`}>Em formação</span>
+
+        <div className={styles.headerText}>
+          <p className={styles.eyebrow}>01 — SOBRE</p>
+          <h1 className={styles.title}>Daniel Tsuruga</h1>
+
+          <div className={styles.status}>
+            <div className={styles.statusItem}>
+              <span className={styles.statusLabel}>Localização</span>
+              <span className={styles.statusValue}>Belo Horizonte, BR</span>
+            </div>
+            <div className={styles.statusItem}>
+              <span className={styles.statusLabel}>Situação</span>
+              <span className={`${styles.statusValue} ${styles.statusValueAccent}`}>
+                Em formação
+              </span>
+            </div>
+          </div>
+
+          <p className={styles.intro}>{intro}</p>
         </div>
       </div>
-
-      <p className={styles.intro}>{intro}</p>
 
       <div className={styles.sections}>
         {sections.map((section) => (
