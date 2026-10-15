@@ -1,4 +1,8 @@
+import { useState } from 'react'
 import { usePageTitle } from '../hooks/usePageTitle'
+import Modal from '../components/Modal'
+import CurriculoViewer from '../components/CurriculoViewer'
+import CURRICULO_CONFIG from '../config/curriculo'
 import styles from './Resume.module.css'
 
 const formacao = {
@@ -26,10 +30,10 @@ const experiencias = [
   },
 ]
 
-const curriculoPdf = null
-
 function Resume() {
   usePageTitle('Currículo')
+
+  const [viewerAberto, setViewerAberto] = useState(false)
 
   return (
     <section>
@@ -83,28 +87,30 @@ function Resume() {
           <span className={styles.sectionLabel}>Documento</span>
           <div>
             <div className={styles.docActions}>
-              {curriculoPdf ? (
-                <>
-                  <a className={styles.docButton} href={curriculoPdf} target="_blank" rel="noreferrer">
-                    Visualizar currículo <span aria-hidden="true">↗</span>
-                  </a>
-                  <a className={styles.docButton} href={curriculoPdf} download>
-                    Baixar PDF <span aria-hidden="true">↓</span>
-                  </a>
-                </>
-              ) : (
-                <>
-                  <span className={styles.docButtonDisabled}>Visualizar currículo</span>
-                  <span className={styles.docButtonDisabled}>Baixar PDF</span>
-                </>
-              )}
+              <button
+                type="button"
+                className={styles.docButton}
+                onClick={() => setViewerAberto(true)}
+              >
+                Visualizar currículo <span aria-hidden="true">↗</span>
+              </button>
+              <a
+                className={styles.docButton}
+                href={CURRICULO_CONFIG.file}
+                download={CURRICULO_CONFIG.downloadName}
+              >
+                Baixar PDF <span aria-hidden="true">↓</span>
+              </a>
             </div>
-            {!curriculoPdf && (
-              <p className={styles.docHint}>Currículo em PDF ainda não disponível.</p>
-            )}
           </div>
         </div>
       </div>
+
+      {viewerAberto && (
+        <Modal title="Currículo — Daniel Tsuruga" onClose={() => setViewerAberto(false)}>
+          <CurriculoViewer />
+        </Modal>
+      )}
     </section>
   )
 }
