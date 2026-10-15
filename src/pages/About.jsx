@@ -1,48 +1,55 @@
-import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import Waveform from '../components/Waveform'
-import FeaturedProject from '../components/FeaturedProject'
 import { usePageTitle } from '../hooks/usePageTitle'
-import styles from './Home.module.css'
+import fotoPerfil from '../assets/foto-perfil.png'
+import styles from './About.module.css'
 
-function Home() {
-  usePageTitle()
+function About() {
+  usePageTitle('about')
   const { t } = useTranslation()
 
+  const sections = t('about.sections', { returnObjects: true })
+
   return (
-    <>
-      <section className={styles.hero}>
-        <div className={styles.content}>
-          <span className={styles.eyebrow}>{t('home.eyebrow')}</span>
+    <section>
+      <div className={styles.header}>
+        <div className={styles.photoFrame}>
+          <img className={styles.photo} src={fotoPerfil} alt={t('about.photoAlt')} />
+        </div>
 
-          <h1 className={styles.title}>
-            TSURUGA<span className={styles.titleDot}>.</span>
-          </h1>
+        <div className={styles.headerText}>
+          <p className={styles.eyebrow}>{t('about.eyebrow')}</p>
+          <h1 className={styles.title}>{t('about.name')}</h1>
 
-          <p className={styles.subtitle}>{t('home.subtitle')}</p>
-
-          <p className={styles.tagline}>{t('home.tagline')}</p>
-
-          <span className={styles.signature}>{t('home.signature')}</span>
-
-          <div className={styles.actions}>
-            <Link to="/projetos" className={styles.buttonPrimary}>
-              {t('home.seeProjects')} <span aria-hidden="true">↗</span>
-            </Link>
-            <Link to="/curriculo" className={styles.buttonSecondary}>
-              {t('home.seeResume')} <span aria-hidden="true">→</span>
-            </Link>
+          <div className={styles.status}>
+            <div className={styles.statusItem}>
+              <span className={styles.statusLabel}>{t('about.locationLabel')}</span>
+              <span className={styles.statusValue}>{t('about.locationValue')}</span>
+            </div>
+            <div className={styles.statusItem}>
+              <span className={styles.statusLabel}>{t('about.statusLabel')}</span>
+              <span className={`${styles.statusValue} ${styles.statusValueAccent}`}>
+                {t('about.statusValue')}
+              </span>
+            </div>
           </div>
-        </div>
 
-        <div className={styles.visual}>
-          <Waveform />
+          <p className={styles.intro}>{t('about.intro')}</p>
         </div>
-      </section>
+      </div>
 
-      <FeaturedProject />
-    </>
+      <div className={styles.sections}>
+        {sections.map((section) => (
+          <div key={section.numero} className={styles.sectionRow}>
+            <span className={styles.sectionLabel}>
+              <span className={styles.sectionLabelNumber}>{section.numero}</span>
+              {section.label}
+            </span>
+            <p className={styles.sectionText}>{section.texto}</p>
+          </div>
+        ))}
+      </div>
+    </section>
   )
 }
 
-export default Home
+export default About
