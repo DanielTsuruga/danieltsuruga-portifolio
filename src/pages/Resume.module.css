@@ -1,3 +1,12 @@
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -11,7 +20,6 @@
   font-weight: 800;
   font-size: clamp(2.5rem, 8vw, 4.5rem);
   line-height: 1;
-  margin-bottom: var(--space-lg);
 }
 
 .sections {
@@ -128,36 +136,18 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--color-text);
+  background: none;
   border: 1px solid var(--color-border);
   border-radius: 6px;
   padding: 0.5rem 1rem;
+  cursor: pointer;
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .docButton:hover {
   border-color: var(--color-text);
-}
-
-.docButtonDisabled {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.docHint {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--color-text-muted);
-  margin-top: var(--space-sm);
 }
 
 @media (max-width: 768px) {

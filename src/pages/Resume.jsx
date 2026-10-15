@@ -14,7 +14,7 @@ const formacao = {
 const conhecimentos = ['JavaScript', 'Java', 'Python', 'HTML', 'CSS', 'React', 'Git']
 
 const experiencias = [
-{
+  {
     periodo: '2026 · 2º semestre — atual',
     cargo: 'Líder de equipe e gestão de projeto',
     organizacao: 'MeuBolso · Trabalho Interdisciplinar — PUC Minas',
@@ -37,8 +37,29 @@ function Resume() {
 
   return (
     <section>
-      <p className={styles.eyebrow}>CURRÍCULO</p>
-      <h1 className={styles.title}>Currículo</h1>
+      <div className={styles.header}>
+        <div>
+          <p className={styles.eyebrow}>CURRÍCULO</p>
+          <h1 className={styles.title}>Currículo</h1>
+        </div>
+
+        <div className={styles.docActions}>
+          <button
+            type="button"
+            className={styles.docButton}
+            onClick={() => setViewerAberto(true)}
+          >
+            Visualizar currículo <span aria-hidden="true">↗</span>
+          </button>
+          <a
+            className={styles.docButton}
+            href={CURRICULO_CONFIG.file}
+            download={CURRICULO_CONFIG.downloadName}
+          >
+            Baixar PDF <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
 
       <div className={styles.sections}>
         <div className={styles.sectionRow}>
@@ -81,28 +102,6 @@ function Resume() {
           ) : (
             <p className={styles.empty}>Informações em breve.</p>
           )}
-        </div>
-
-        <div className={styles.sectionRow}>
-          <span className={styles.sectionLabel}>Documento</span>
-          <div>
-            <div className={styles.docActions}>
-              <button
-                type="button"
-                className={styles.docButton}
-                onClick={() => setViewerAberto(true)}
-              >
-                Visualizar currículo <span aria-hidden="true">↗</span>
-              </button>
-              <a
-                className={styles.docButton}
-                href={CURRICULO_CONFIG.file}
-                download={CURRICULO_CONFIG.downloadName}
-              >
-                Baixar PDF <span aria-hidden="true">↓</span>
-              </a>
-            </div>
-          </div>
         </div>
       </div>
 
