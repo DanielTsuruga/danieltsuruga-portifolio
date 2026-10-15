@@ -3,18 +3,18 @@ import { useTranslation } from 'react-i18next'
 import { usePageTitle } from '../hooks/usePageTitle'
 import Modal from '../components/Modal'
 import CurriculoViewer from '../components/CurriculoViewer'
-import CURRICULO_CONFIG from '../config/curriculo'
+import { getCurriculoFile, getCurriculoDownloadName } from '../config/curriculo'
 import styles from './Resume.module.css'
 
 const conhecimentos = ['JavaScript', 'Java', 'Python', 'HTML', 'CSS', 'React', 'Git']
 
 function Resume() {
   usePageTitle('resume')
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = i18n.resolvedLanguage || i18n.language
 
   const [viewerAberto, setViewerAberto] = useState(false)
 
-  // Experiências vindas das traduções (returnObjects habilitado no i18n).
   const experiencias = t('resume.experiences', { returnObjects: true })
 
   return (
@@ -35,8 +35,8 @@ function Resume() {
           </button>
           <a
             className={styles.docButton}
-            href={CURRICULO_CONFIG.file}
-            download={CURRICULO_CONFIG.downloadName}
+            href={getCurriculoFile(lang)}
+            download={getCurriculoDownloadName(lang)}
           >
             {t('resume.downloadPdf')} <span aria-hidden="true">↓</span>
           </a>

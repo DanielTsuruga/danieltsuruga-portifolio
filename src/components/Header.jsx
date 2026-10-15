@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { useTheme, THEMES } from '../hooks/useTheme'
+import { useTheme, VISIBLE_THEMES } from '../hooks/useTheme'
 import { LANGUAGES } from '../i18n'
 import styles from './Header.module.css'
 
@@ -69,7 +69,7 @@ function Header() {
           <span className={styles.divider} />
 
           <div className={styles.themeGroup}>
-            {THEMES.map((option) => (
+            {VISIBLE_THEMES.map((option) => (
               <button
                 key={option}
                 type="button"

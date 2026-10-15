@@ -4,22 +4,69 @@ import { Document, Page, pdfjs } from 'react-pdf'
 import { useTranslation, Trans } from 'react-i18next'
 import 'react-pdf/dist/Page/AnnotationLayer.css'
 import 'react-pdf/dist/Page/TextLayer.css'
-import CURRICULO_CONFIG from '../config/curriculo'
+import CURRICULO_CONFIG, {
+  getCurriculoFile,
+  getCurriculoDownloadName,
+} from '../config/curriculo'
 import styles from './CurriculoViewer.module.css'
 
 import workerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
 
 pdfjs.GlobalWorkerOptions.workerSrc = workerUrl
 
-const { file, downloadName, zoomMin, zoomMax, zoomStep } = CURRICULO_CONFIG
+const { zoomMin, zoomMax, zoomStep } = CURRICULO_CONFIG
+
+function PdfDocument({ file, pageWidth, t }) {
+  const [pages, setPages] = useState(0)
+  const [error, setError] = useState(false)
+  const loading = !error && pages === 0
+
+  if (error) {
+    return (
+      <p className={`${styles.status} ${styles.error}`}>
+        <Trans i18nKey="curriculoViewer.error">
+          Não foi possível exibir o PDF aqui. Use os botões <strong>Baixar PDF</strong> ou{' '}
+          <strong>Abrir</strong>.
+        </Trans>
+      </p>
+    )
+  }
+
+  return (
+    <>
+      {loading && <p className={styles.status}>{t('curriculoViewer.loading')}</p>}
+      <Document
+        file={file}
+        onLoadSuccess={({ numPages }) => setPages(numPages)}
+        onLoadError={(err) => {
+          console.error('Currículo: falha ao abrir o PDF', err)
+          setError(true)
+        }}
+        loading={null}
+        error={null}
+      >
+        {pageWidth &&
+          Array.from({ length: pages }, (_, i) => (
+            <div key={i} className={styles.page}>
+              <Page pageNumber={i + 1} width={pageWidth} loading={null} />
+            </div>
+          ))}
+      </Document>
+    </>
+  )
+}
 
 function CurriculoViewer() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = i18n.resolvedLanguage || i18n.language
+
+  // PDF e nome de download conforme o idioma ativo (com fallback para PT).
+  const file = getCurriculoFile(lang)
+  const downloadName = getCurriculoDownloadName(lang)
+
   const areaRef = useRef(null)
-  const [pages, setPages] = useState(0)
   const [zoom, setZoom] = useState(1)
   const [width, setWidth] = useState(null)
-  const [error, setError] = useState(false)
 
   useEffect(() => {
     const area = areaRef.current
@@ -35,15 +82,10 @@ function CurriculoViewer() {
     setZoom((z) => Math.min(zoomMax, Math.max(zoomMin, +(z + delta).toFixed(2))))
 
   const pageWidth = width ? Math.round(Math.min(width, 820) * zoom) : undefined
-  const loading = !error && pages === 0
 
   return (
     <div className={styles.viewer}>
       <div className={styles.toolbar}>
-        {pages > 0 && (
-          <span className={styles.pages}>{t('curriculoViewer.page', { count: pages })}</span>
-        )}
-
         <div className={styles.zoom} role="group" aria-label={t('curriculoViewer.zoomGroup')}>
           <button
             type="button"
@@ -100,34 +142,7 @@ function CurriculoViewer() {
       </div>
 
       <div className={styles.area} ref={areaRef}>
-        {loading && <p className={styles.status}>{t('curriculoViewer.loading')}</p>}
-
-        {error ? (
-          <p className={`${styles.status} ${styles.error}`}>
-            <Trans i18nKey="curriculoViewer.error">
-              Não foi possível exibir o PDF aqui. Use os botões <strong>Baixar PDF</strong> ou{' '}
-              <strong>Abrir</strong>.
-            </Trans>
-          </p>
-        ) : (
-          <Document
-            file={file}
-            onLoadSuccess={({ numPages }) => setPages(numPages)}
-            onLoadError={(err) => {
-              console.error('Currículo: falha ao abrir o PDF', err)
-              setError(true)
-            }}
-            loading={null}
-            error={null}
-          >
-            {pageWidth &&
-              Array.from({ length: pages }, (_, i) => (
-                <div key={i} className={styles.page}>
-                  <Page pageNumber={i + 1} width={pageWidth} loading={null} />
-                </div>
-              ))}
-          </Document>
-        )}
+        <PdfDocument key={file} file={file} pageWidth={pageWidth} t={t} />
       </div>
     </div>
   )
